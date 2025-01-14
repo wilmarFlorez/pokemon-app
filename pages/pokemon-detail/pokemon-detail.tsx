@@ -9,5 +9,11 @@ export default async function Pokemon({ params }: Props) {
   const id = (await params).id;
   const pokemon = await getPokemonById({ id });
 
-  return <PokemonItem pokemon={pokemon} />;
+  return (
+    <section className="flex justify-center py-8">
+      <div className="container px-4 md:px-0">
+        <PokemonItem pokemon={pokemon} />
+      </div>
+    </section>
+  );
 }
