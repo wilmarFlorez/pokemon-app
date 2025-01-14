@@ -1,8 +1,8 @@
 'use client';
 
 import { PokemonSlim } from '@pokemon/types/pokemons';
-import { useInfinitePokemons } from '../hooks/useInfinitePokemons';
-import Link from 'next/link';
+import { useInfinitePokemons } from '../../hooks/useInfinitePokemons';
+import { PokemonCard } from '../pokemon-card/pokemon-card';
 
 export const PokemonList = () => {
   const { data, isLoading, hasNextPage, fetchNextPage } = useInfinitePokemons();
@@ -18,15 +18,7 @@ export const PokemonList = () => {
           {data?.pages
             .flatMap((page) => page.results)
             .map((pokemon: PokemonSlim) => (
-              <Link href={`/pokemon/${pokemon.id}`} key={pokemon.id}>
-                <div className="flex flex-col relative bg-blue-500 border-4 border-white overflow-hidden  aspect-square justify-center items-center rounded-[40px] shadow-md hover:shadow-xl hover:shadow-gray-300 transition-shadow  hover:animate-pokeballBounce">
-                  <div className="w-full h-full absolute flex items-center justify-center">
-                    <span className="font-bold text-lg text-white mb-16 ">
-                      {pokemon.name.toUpperCase()}
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <PokemonCard pokemon={pokemon} key={pokemon.id} />
             ))}
         </div>
       </section>

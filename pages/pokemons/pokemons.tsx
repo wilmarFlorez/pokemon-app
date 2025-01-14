@@ -1,7 +1,7 @@
 import { getQueryClient } from '@pokemon/lib/query-client';
 import { getPaginatedPokemonsOptions } from '@pokemon/services/pokemons/getAllPokemons';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import { PokemonList } from './components/pokemon-list';
+import { PokemonList } from './components/pokemon-list/pokemon-list';
 
 export default async function Home() {
   const queryClient = getQueryClient();
