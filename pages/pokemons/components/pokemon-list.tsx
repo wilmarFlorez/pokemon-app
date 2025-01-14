@@ -2,6 +2,7 @@
 
 import { PokemonSlim } from '@pokemon/types/pokemons';
 import { useInfinitePokemons } from '../hooks/useInfinitePokemons';
+import Link from 'next/link';
 
 export const PokemonList = () => {
   const { data, isLoading, hasNextPage, fetchNextPage } = useInfinitePokemons();
@@ -15,7 +16,11 @@ export const PokemonList = () => {
       {data?.pages
         .flatMap((page) => page.results)
         .map((pokemon: PokemonSlim) => (
-          <div key={pokemon.name}>{pokemon.name}</div>
+          <Link href={`/pokemon/${pokemon.id}`} key={pokemon.id}>
+            <div>
+              {pokemon.name} {pokemon.id}{' '}
+            </div>
+          </Link>
         ))}
 
       <div>

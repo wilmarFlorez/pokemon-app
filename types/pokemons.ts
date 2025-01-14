@@ -1,4 +1,5 @@
 export type PokemonSlim = {
+  id: string | null;
   name: string;
   url: string;
 };

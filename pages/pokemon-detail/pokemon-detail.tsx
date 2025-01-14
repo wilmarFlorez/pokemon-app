@@ -9,5 +9,5 @@ export default async function Pokemon({ params }: Props) {
   const id = (await params).id;
   const pokemon = await getPokemonById({ id });
 
-  return <PokemonItem />;
+  return <PokemonItem pokemon={pokemon} />;
 }

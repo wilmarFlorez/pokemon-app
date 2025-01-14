@@ -1,9 +1,9 @@
+import {
+  buildPokemonUrl,
+  extractPokemonId,
+} from '@pokemon/lib/utils/pokemon-utils';
 import { PokemonsResponseApi } from '@pokemon/types/pokemons';
 import { infiniteQueryOptions } from '@tanstack/react-query';
-
-const buildPokemonUrl = (offset = 0, limit = 20) => {
-  return `${process.env.NEXT_PUBLIC_BASE_POKE_API}/pokemon?offset=${offset}&limit=${limit}`;
-};
 
 const getPaginatedPokemos = async (
   nextPage: string
@@ -15,9 +15,28 @@ const getPaginatedPokemos = async (
       throw new Error('Failed to fetch data');
     }
 
-    return response.json();
+    const data: PokemonsResponseApi = await response.json();
+
+    const newPokemons = data.results.map((pokemon) => {
+      const id = extractPokemonId(pokemon.url);
+
+      const newPokemon = {
+        ...pokemon,
+        id,
+      };
+
+      return newPokemon;
+    });
+
+    const newData: PokemonsResponseApi = {
+      ...data,
+      results: newPokemons,
+    };
+
+    return newData;
   } catch (error) {
     return {
+      id: null,
       count: 0,
       next: null,
       previous: null,
