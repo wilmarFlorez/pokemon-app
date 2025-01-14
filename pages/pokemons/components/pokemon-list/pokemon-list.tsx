@@ -3,13 +3,18 @@
 import { PokemonSlim } from '@pokemon/types/pokemons';
 import { useInfinitePokemons } from '../../hooks/useInfinitePokemons';
 import { PokemonCard } from '../pokemon-card/pokemon-card';
+import { useIsVisible } from '@pokemon/hooks/useIntersectionObserver';
+import { useEffect } from 'react';
 
 export const PokemonList = () => {
   const { data, isLoading, hasNextPage, fetchNextPage } = useInfinitePokemons();
-
-  const loadMorePokemons = () => {
-    if (hasNextPage) fetchNextPage();
-  };
+  const { isIntersecting, ref } = useIsVisible();
+  
+  useEffect(() => {
+    if (isIntersecting && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [isIntersecting, hasNextPage, fetchNextPage]);
 
   return (
     <div className="pt-16 bg-slate-100">
@@ -23,14 +28,7 @@ export const PokemonList = () => {
         </div>
       </section>
 
-      <div>
-        <button
-          onClick={loadMorePokemons}
-          className="bg-black text-white p-2 rounded-lg"
-        >
-          Load more
-        </button>
-      </div>
+      {hasNextPage ? <div ref={ref} className="my-8 h-2" /> : null}
     </div>
   );
 };

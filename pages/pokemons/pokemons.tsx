@@ -6,6 +6,7 @@ import { PokemonList } from './components/pokemon-list/pokemon-list';
 export default async function Home() {
   const queryClient = getQueryClient();
   await queryClient.prefetchInfiniteQuery(getPaginatedPokemonsOptions());
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <PokemonList />
