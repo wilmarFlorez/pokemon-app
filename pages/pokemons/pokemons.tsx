@@ -8,7 +8,6 @@ export default async function Home() {
   await queryClient.prefetchInfiniteQuery(getPaginatedPokemonsOptions());
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <h1>Pokemons</h1>
       <PokemonList />
     </HydrationBoundary>
   );
