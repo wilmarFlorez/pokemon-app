@@ -29,7 +29,7 @@ const getPaginatedPokemos = async (
 export const getPaginatedPokemonsOptions = () => {
   return infiniteQueryOptions<PokemonsResponseApi>({
     queryKey: ['getAllPokemons'],
-    queryFn: ({ pageParam }) => getPaginatedPokemos(pageParam),
+    queryFn: ({ pageParam }) => getPaginatedPokemos(pageParam as string),
     getNextPageParam: (lastPage) => {
       console.log('last page ==>', lastPage.next);
       return lastPage.next;
