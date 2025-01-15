@@ -11,8 +11,8 @@ export const FilteredPokemonList = () => {
       <div>
         {!pokemons && !isLoading ? (
           <p className="text-center mt-12 text-lg">
-            No hemos encontrado resultados, ingresa un término de busqueda
-            ejemplo: fire
+            No hemos encontrado resultados. Por favor, ingresa un término válido
+            de búsqueda. Ejemplo: fire
           </p>
         ) : null}
         {isError ? (
