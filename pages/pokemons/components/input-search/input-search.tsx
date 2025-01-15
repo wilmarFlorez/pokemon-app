@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Image from 'next/image';
 import {
   useFilterType,
@@ -10,16 +10,18 @@ import {
 import { filters } from '@pokemon/constants/filter';
 
 export const InputSearch = () => {
+  const [localTerm, setLocalTerm] = useState('');
   const setTerm = useSetTerm();
   const term = useTerm();
   const filterType = useFilterType();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTerm(e.target.value.trim());
+    setLocalTerm(e.target.value.trim());
   };
 
   const handleClick = () => {
-    console.log('Clicked');
+    console.log('localTerm', localTerm);
+    setTerm(localTerm);
   };
 
   return (
@@ -30,10 +32,10 @@ export const InputSearch = () => {
         placeholder="Buscar"
         disabled={filterType === filters.all}
         onChange={handleChange}
-        value={term}
+        value={localTerm}
       />
       <button
-        disabled={!term}
+        disabled={!localTerm}
         className="bg-gray-200 hover:bg-gray-300 transition-colors h-full aspect-square flex justify-center items-center border-l border-l-gray-300"
         onClick={handleClick}
       >

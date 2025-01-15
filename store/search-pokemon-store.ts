@@ -11,7 +11,7 @@ interface SearchStore {
 }
 
 export const useSearchPokemonStore = create<SearchStore>((set) => ({
-  term: '',
+  term: undefined,
   filterType: 'all',
   actions: {
     setTerm: (term) => set({ term }),

@@ -10,3 +10,9 @@ export interface PokemonsResponseApi {
   previous: string | null;
   results: PokemonSlim[];
 }
+
+export type PokemonsTypeResponseApi = PokemonSlim[];
+
+export type PokemonResponseItem = {
+  pokemon: PokemonSlim;
+};
