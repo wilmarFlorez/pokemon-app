@@ -1,6 +1,8 @@
+export type FilterType = 'all' | 'type';
+
 type FilterOption = {
   label: string;
-  value: 'all' | 'type';
+  value: FilterType;
   selected: boolean;
 };
 

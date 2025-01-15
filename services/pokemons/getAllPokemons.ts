@@ -35,8 +35,8 @@ const getPaginatedPokemos = async (
 
     return newData;
   } catch (error) {
+    console.log(error);
     return {
-      id: null,
       count: 0,
       next: null,
       previous: null,
@@ -50,7 +50,6 @@ export const getPaginatedPokemonsOptions = () => {
     queryKey: ['getAllPokemons'],
     queryFn: ({ pageParam }) => getPaginatedPokemos(pageParam as string),
     getNextPageParam: (lastPage) => {
-      console.log('last page ==>', lastPage.next);
       return lastPage.next;
     },
     initialPageParam: buildPokemonUrl(),

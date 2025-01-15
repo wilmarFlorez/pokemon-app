@@ -2,13 +2,19 @@
 
 import { ChangeEvent } from 'react';
 import Image from 'next/image';
+import { useSetTerm } from '@pokemon/store/search-pokemon-store';
 
 interface Props {
   disabledButton: boolean;
 }
 
 export const InputSearch = ({ disabledButton }: Props) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {};
+  const setTerm = useSetTerm();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setTerm(e.target.value.trim());
+  };
+
   return (
     <div className="flex rounded-lg overflow-hidden border border-gray-300">
       <input
