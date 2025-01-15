@@ -21,7 +21,7 @@ export const InputSearch = () => {
   return (
     <div className="flex rounded-lg overflow-hidden border border-gray-300">
       <input
-        className="outline-none px-3 py-3 w-96 rounded-lg mw-[80%]"
+        className="outline-none px-3 py-3 w-72 md:w-96 rounded-lg"
         type="search"
         placeholder="Buscar"
         disabled={filterType === filters.all}
