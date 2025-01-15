@@ -5,7 +5,7 @@ export const filterOptions: FilterOptions = [
   {
     label: 'Todos',
     value: filters.all,
-    selected: true,
+    selected: false,
   },
   {
     label: 'Tipo',

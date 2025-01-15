@@ -27,7 +27,7 @@ export const FilteredPokemonList = () => {
     );
 
   return (
-    <div className="pt-32">
+    <div className="pt-32 pb-16">
       <section className="flex justify-center">
         <div className="container px-2 md:px-0 grid gap-8 md-gap-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {pokemons.map((pokemon) => (

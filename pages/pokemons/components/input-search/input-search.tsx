@@ -2,17 +2,12 @@
 
 import { ChangeEvent, useState } from 'react';
 import Image from 'next/image';
-import {
-  useFilterType,
-  useSetTerm,
-  useTerm,
-} from '@pokemon/store/search-pokemon-store';
+import { useFilterType, useSetTerm } from '@pokemon/store/search-pokemon-store';
 import { filters } from '@pokemon/constants/filter';
 
 export const InputSearch = () => {
   const [localTerm, setLocalTerm] = useState('');
   const setTerm = useSetTerm();
-  const term = useTerm();
   const filterType = useFilterType();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +15,6 @@ export const InputSearch = () => {
   };
 
   const handleClick = () => {
-    console.log('localTerm', localTerm);
     setTerm(localTerm);
   };
 
