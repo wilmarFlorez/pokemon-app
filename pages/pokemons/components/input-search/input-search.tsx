@@ -21,16 +21,21 @@ export const InputSearch = () => {
   return (
     <div className="flex rounded-lg overflow-hidden border border-gray-300">
       <input
-        className="outline-none px-3 py-3 w-96 rounded-lg"
+        className="outline-none px-3 py-3 w-96 rounded-lg mw-[80%]"
         type="search"
         placeholder="Buscar"
         disabled={filterType === filters.all}
         onChange={handleChange}
         value={localTerm}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleClick();
+          }
+        }}
       />
       <button
         disabled={!localTerm}
-        className="bg-gray-200 hover:bg-gray-300 transition-colors h-full aspect-square flex justify-center items-center border-l border-l-gray-300"
+        className="bg-gray-200 hover:bg-gray-300 transition-colors h-full aspect-square hidden md:flex justify-center items-center border-l border-l-gray-300 "
         onClick={handleClick}
       >
         <Image
