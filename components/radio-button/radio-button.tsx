@@ -11,7 +11,7 @@ export const RadioButton: React.FC<RadioButtonProps> = ({
   ...rest
 }) => {
   return (
-    <label className="flex items-center gap-1">
+    <label className="flex items-center gap-1 cursor-pointer">
       <input type="radio" name={name} {...rest} />
       {label}
     </label>
