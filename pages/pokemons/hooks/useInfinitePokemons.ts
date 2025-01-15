@@ -10,6 +10,7 @@ export function useInfinitePokemons() {
     fetchNextPage,
     isError,
     isFetchingNextPage,
+    status,
   } = useInfiniteQuery<PokemonsResponseApi>(getPaginatedPokemonsOptions());
 
   return {
@@ -19,5 +20,6 @@ export function useInfinitePokemons() {
     fetchNextPage,
     isError,
     isFetchingNextPage,
+    status,
   };
 }
