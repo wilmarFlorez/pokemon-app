@@ -15,7 +15,7 @@ export const InputSearch = () => {
   };
 
   const handleClick = () => {
-    setTerm(localTerm);
+    setTerm(localTerm.toLocaleLowerCase());
   };
 
   return (
