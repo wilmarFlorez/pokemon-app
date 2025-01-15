@@ -2,6 +2,7 @@ import { getQueryClient } from '@pokemon/lib/query-client';
 import { getPaginatedPokemonsOptions } from '@pokemon/services/pokemons/getAllPokemons';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { PokemonList } from './components/pokemon-list/pokemon-list';
+import { Search } from './components/search/search';
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -9,6 +10,7 @@ export default async function Home() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+      <Search disabledButton={false} />
       <PokemonList />
     </HydrationBoundary>
   );
