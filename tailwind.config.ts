@@ -15,9 +15,9 @@ export default {
       keyframes: {
         pokeballBounce: {
           '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-          '25%': { transform: 'translateY(-6px) rotate(-10deg)' },
-          '50%': { transform: 'translateY(5px) rotate(10deg)' },
-          '75%': { transform: 'translateY(-5px) rotate(-10deg)' },
+          '25%': { transform: 'translateY(-1px) rotate(-2deg)' },
+          '50%': { transform: 'translateY(1px) rotate(2deg)' },
+          '75%': { transform: 'translateY(-1px) rotate(-2deg)' },
         },
       },
       animation: {
