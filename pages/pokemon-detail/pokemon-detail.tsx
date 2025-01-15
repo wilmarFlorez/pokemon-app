@@ -10,7 +10,7 @@ export default async function Pokemon({ params }: Props) {
   const pokemon = await getPokemonById({ id });
 
   return (
-    <section className="flex justify-center py-8 mt-16">
+    <section className="flex justify-center py-8 mt-8 md:mt-16">
       <div className="container px-4 md:px-0">
         <PokemonItem pokemon={pokemon} />
       </div>

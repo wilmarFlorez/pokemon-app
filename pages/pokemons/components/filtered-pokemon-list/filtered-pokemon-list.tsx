@@ -2,6 +2,7 @@
 
 import { useGetPokemonsByType } from '@pokemon/pages/pokemon-detail/hooks/useGetPokemonsByType';
 import { PokemonCard } from '../pokemon-card/pokemon-card';
+import { PokemonsGrid } from '../pokemons-grid/pokemons-grid';
 
 export const FilteredPokemonList = () => {
   const { data: pokemons, isError, isLoading } = useGetPokemonsByType();
@@ -27,14 +28,10 @@ export const FilteredPokemonList = () => {
     );
 
   return (
-    <div className="pt-32 pb-16">
-      <section className="flex justify-center">
-        <div className="container px-2 md:px-0 grid gap-8 md-gap-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {pokemons.map((pokemon) => (
-            <PokemonCard pokemon={pokemon} key={pokemon.id} />
-          ))}
-        </div>
-      </section>
-    </div>
+    <PokemonsGrid>
+      {pokemons.map((pokemon) => (
+        <PokemonCard pokemon={pokemon} key={pokemon.id} />
+      ))}
+    </PokemonsGrid>
   );
 };
