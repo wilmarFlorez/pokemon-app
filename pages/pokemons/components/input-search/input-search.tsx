@@ -9,11 +9,7 @@ import {
 } from '@pokemon/store/search-pokemon-store';
 import { filters } from '@pokemon/constants/filter';
 
-interface Props {
-  disabledButton: boolean;
-}
-
-export const InputSearch = ({ disabledButton }: Props) => {
+export const InputSearch = () => {
   const setTerm = useSetTerm();
   const term = useTerm();
   const filterType = useFilterType();
@@ -34,6 +30,7 @@ export const InputSearch = ({ disabledButton }: Props) => {
         placeholder="Buscar"
         disabled={filterType === filters.all}
         onChange={handleChange}
+        value={term}
       />
       <button
         disabled={!term}

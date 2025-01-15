@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Search disabledButton={false} />
+      <Search />
       <PokemonList />
     </HydrationBoundary>
   );
